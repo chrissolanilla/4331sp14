@@ -43,7 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } else {
         // Registration failed, redirect back to the registration page with an error
-        echo "Error: " . $stmt->error;
+        //echo "Error: " . $stmt->error;
+        header("Location: ../register/");
         exit();
     }
 
