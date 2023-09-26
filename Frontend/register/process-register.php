@@ -35,16 +35,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Prepare a SQL statement to insert the new user
     $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssssssss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
-
+   
+   //checks if username is
+   // check if name is taken already
+    $stmt = $link->prepare("SELECT username FROM users WHERE username = :username");
+    $stmt->execute([
+        'username' => $username
+    ]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
     // Execute the statement
     if ($stmt->execute()) {
         // Registration successful, redirect to the login page
         header("Location: ../login/");
         exit();
-    } else {
+    } elseif(isset($user) && !empty($user)){
+        header("Location: ../register/register.php");
+        echo "Username is taken" .$stmt->error;
+        exit();
+    }else {
         // Registration failed, redirect back to the registration page with an error
-        //echo "Error: " . $stmt->error;
-        header("Location: ../register/");
+        header("Location: ../register/register.php");
+       echo "Error: " . $stmt->error;
+      
         exit();
     }
 
