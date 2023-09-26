@@ -36,12 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Password is incorrect
-            header("Location: login/?error=Incorrect password");
+            header("Location: login/");
+            echo "Wrong Password";
             exit();
         }
     } else {
         // No user found
-        header("Location: login/?error=No user found");
+        header("Location: login/");
+        echo "Username not found";
         exit();
     }
 
