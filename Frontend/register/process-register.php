@@ -1,11 +1,10 @@
 <?php
+// Start session
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 var_dump($_POST);
-
-// Start session
-session_start();
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -39,12 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute the statement
     if ($stmt->execute()) {
         // Registration successful, redirect to the login page
-        header("Location: ../login/");
+        header("Location: ../profile/");
         exit();
     } else {
         // Registration failed, redirect back to the registration page with an error
         //echo "Error: " . $stmt->error;
-        header("Location: ../register/");
+        header("Location: ../login/login.php");
         exit();
     }
 
