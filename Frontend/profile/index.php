@@ -8,12 +8,17 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
-// Fetch user details from the database based on the username in the session
-// Here, we'll just simulate fetching user details for demonstration
+// Fetch user details from the session
 $userDetails = [
     "username" => $_SESSION["username"],
-    "email" => "user@example.com",
-    // other user details can be added here
+    "email" => $_SESSION["email"],
+    "country" => $_SESSION["country"],
+    "first_name" => $_SESSION["first_name"],
+    "last_name" => $_SESSION["last_name"],
+    "phone" => $_SESSION["phone"],
+    "chess_rating" => $_SESSION["chess_rating"],
+    "favorite_opening" => $_SESSION["favorite_opening"],
+    "title" => $_SESSION["title"]
 ];
 ?>
 
@@ -39,7 +44,34 @@ $userDetails = [
                     <th>Email</th>
                     <td><?php echo htmlspecialchars($userDetails["email"]); ?></td>
                 </tr>
-                <!-- Add more rows to display additional user details -->
+                <tr>
+                    <th>Country</th>
+                    <td><?php echo htmlspecialchars($userDetails["country"]); ?></td>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <td><?php echo htmlspecialchars($userDetails["first_name"]); ?></td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td><?php echo htmlspecialchars($userDetails["last_name"]); ?></td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td><?php echo htmlspecialchars($userDetails["phone"]); ?></td>
+                </tr>
+                <tr>
+                    <th>Chess Rating</th>
+                    <td><?php echo htmlspecialchars($userDetails["chess_rating"]); ?></td>
+                </tr>
+                <tr>
+                    <th>Favorite Opening</th>
+                    <td><?php echo htmlspecialchars($userDetails["favorite_opening"]); ?></td>
+                </tr>
+                <tr>
+                    <th>Title</th>
+                    <td><?php echo htmlspecialchars($userDetails["title"]); ?></td>
+                </tr>
             </table>
             <a href="logout.php" class="btn btn-primary">Logout</a>
         </div>
