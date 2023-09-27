@@ -35,22 +35,20 @@
         <div class="navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="login">Login</a>
+              <a class="nav-link" href="login/login.php">Login</a>
             </li>
           </ul>
         </div>
       </nav>
     </div>
     <!--end of nav-->
-    <?php 
-      echo "hello";
-      ?>
+    
     
 	<!-- <img src="https://i.redd.it/j8ldvox5ep891.jpg" > -->
 
 
   <!-- Main Content -->
-  <div class="vanta" > test</div>
+  <div class="vanta" ></div>
   <div class="container">
     <div class="row mt-5">
       <div class="col-md-12">
