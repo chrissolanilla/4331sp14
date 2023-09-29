@@ -10,7 +10,7 @@
             <!-- Navigation Bar should be placed at the top so have it be the first thing in the body -->
             <div class="container">
             <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-                <a class="navbar-brand" href="#">Chess Connect</a>
+                <a class="navbar-brand" href="../#">Chess Connect</a>
                 <div class="navbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
