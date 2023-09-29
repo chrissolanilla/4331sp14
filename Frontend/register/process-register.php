@@ -48,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../profile/");
         exit();
     } elseif(isset($user) && !empty($user)){
-        header("Location: ../register/register.php");
+        header("Location: register.php");
         echo "Username is taken" .$stmt->error;
         exit();
     }else {
         // Registration failed, redirect back to the registration page with an error
-        header("Location: ../register/register.php");
+        header("Location: register.php");
         echo "Error: " . $stmt->error;
 
         exit();
