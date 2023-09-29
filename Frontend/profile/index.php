@@ -1,24 +1,6 @@
-<?php
-// Start the session
-session_start();
-
-// Check if the user is logged in, if not redirect to the login page
-if (!isset($_SESSION["username"])) {
-    header("Location: login/");
-    exit();
-}
-
-// Fetch user details from the database based on the username in the session
-// Here, we'll just simulate fetching user details for demonstration
-$userDetails = [
-    "username" => $_SESSION["username"],
-    "email" => "user@example.com",
-    // other user details can be added here
-];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <title>User Profile</title>

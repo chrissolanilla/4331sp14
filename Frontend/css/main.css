@@ -1,46 +1,28 @@
-/* Define the falling animation */
-@keyframes falling {
-    from {
-      transform: translateY(-100vh);
-    }
-    to {
-      transform: translateY(100vh);
-    }
-  }
-  
-  /* Apply animation to chess pieces */
-  .chess-piece {
-    position: absolute;
-    animation: falling linear infinite;
-  }
-  
-  /* Individual chess pieces with different starting positions and animation durations */
-  .chess-piece1 {
-    background-image: url('https://pics.clipartpng.com/Pawn_White_Chess_Piece_PNG_Clip_Art-2751.png');
-    width: 50px;
-    height: 50px;
-    animation-duration: 5s;
-    left: 10%;
-  }
-  
-  .chess-piece2 {
-    background-image: url('https://www.svgrepo.com/show/480483/chess-8.svg');
-    width: 10px;
-    height: 10px;
-    animation-duration: 7s;
-    left: 30%;
-  }
-  
-  .image-pawn {
-    width: 50px;
-  }
-  /* Add more chess pieces as needed */
-  
-  /* Style the body to fit the entire viewport and set the background color */
-  body {
-    margin: 0;
-    overflow: hidden;
-    height: 100vh;
-    background-color: lightgreen;
-  }
-  
+.background-image {
+  background-image: url('image.jpg'); /* Replace 'your-image-url.jpg' with the actual URL of your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff; /* Adjust text color for readability */
+  margin: 0; /* Remove default margin for body element */
+  padding: 0; /* Remove default padding for body element */
+}
+
+.background-image2 {
+  background-image: url('ChessBoardMarble.png'); /* Replace 'your-image-url.jpg' with the actual URL of your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff; /* Adjust text color for readability */
+  margin: 0; /* Remove default margin for body element */
+  padding: 0; /* Remove default padding for body element */
+}
+
+.card {
+  background-color: rgba(121, 121, 121, 0.114);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  padding: 50px;
+}
