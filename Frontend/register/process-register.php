@@ -35,10 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssssssss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
    
-  $stm = $pdo->prepare(“SELECT COUNT(`user_email`) FROM `user_table` WHERE `user_email`= :user_email LIMIT 1”); 
-    $result = $stm->fetchColumn(); 
+ 
     // Execute the statement
-    if ($result!>0&&$stmt->execute()) {
+    if ($stmt->execute()) {
         // Registration successful, redirect to the login page
         header("Location: ../profile/");
         exit();
