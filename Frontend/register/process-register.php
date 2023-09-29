@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stm = $pdo->prepare(“SELECT COUNT(`user_email`) FROM `user_table` WHERE `user_email`= :user_email LIMIT 1”); 
     $result = $stm->fetchColumn(); 
     // Execute the statement
-    if ($result>0&&$stmt->execute()) {
+    if ($result!>0&&$stmt->execute()) {
         // Registration successful, redirect to the login page
         header("Location: ../profile/");
         exit();
