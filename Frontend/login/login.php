@@ -5,17 +5,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Login - Chess Contact Manager</title>
-    <style>
-        body {
-            display: grid;
-            place-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: lightgreen;
-        }
-    </style>
 </head>
 <body>
+            <!-- Navigation Bar should be placed at the top so have it be the first thing in the body -->
+            <div class="container">
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                <a class="navbar-brand" href="#">Chess Connect</a>
+                <div class="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" >Login</a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+        <!--end of nav-->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
