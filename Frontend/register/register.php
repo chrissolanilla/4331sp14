@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Register</title>
 </head>
 <body>
+            <!-- Navigation Bar should be placed at the top so have it be the first thing in the body -->
+            <div class="container">
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                <a class="navbar-brand" href="#">Chess Connect</a>
+                <div class="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="login/login.php">Login</a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+        <!--end of nav-->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
