@@ -68,7 +68,7 @@
                     // Registration failed, redirect back to the registration page with an error
                 
                     
-                die('Sorry, the Username '.$_POST['username'].' has already been used to register.');
+                echo('Sorry, the Username '.$_POST['username'].' has already been used to register.');
                     
 
                     exit();
