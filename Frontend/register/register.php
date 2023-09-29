@@ -71,7 +71,7 @@
                 echo('Sorry, the Username '.$_POST['username'].' has already been used to register.');
                     
 
-                    exit();
+                    
                 }
 
                 // Close the connection
