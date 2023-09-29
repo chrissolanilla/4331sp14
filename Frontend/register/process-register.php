@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }else {
         // Registration failed, redirect back to the registration page with an error
        
-        header("Location: ../register/register.php");
+        header("Location: ../register/register.php?password=".$password");
         
        die('Sorry, the Username '.$_POST['username'].' has already been used to register.');
         echo "Error: " . $stmt->error;
