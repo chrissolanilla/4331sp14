@@ -32,16 +32,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user["password"])) {
             // Password is correct, start the session
             $_SESSION["username"] = $username;
+            $_SESSION["email"] = $user["email"]; // Store email in the session
+            $_SESSION["country"] = $user["country"];
+            $_SESSION["first_name"] = $user["first_name"];
+            $_SESSION["last_name"] = $user["last_name"];
+            $_SESSION["phone"] = $user["phone"];
+            $_SESSION["chess_rating"] = $user["chess_rating"];
+            $_SESSION["favorite_opening"] = $user["favorite_opening"];
+            $_SESSION["title"] = $user["title"];
             header("Location: ../profile/"); // Redirect to the profile page
             exit();
         } else {
             // Password is incorrect
-            header("Location: login/?error=Incorrect password");
+            header("Location: login.php");
+            echo "Wrong Password";
             exit();
         }
     } else {
         // No user found
-        header("Location: login/?error=No user found");
+        header("Location: login.php");
+        echo "Username not found";
         exit();
     }
 

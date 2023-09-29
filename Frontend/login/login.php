@@ -33,6 +33,23 @@
 </head>
 <body class="background-image2"> <!-- Apply background class to the body -->   
     <div class="container vertical-center"> <!-- Add the vertical-center class to center vertically -->
+</head>
+<body>
+            <!-- Navigation Bar should be placed at the top so have it be the first thing in the body -->
+            <div class="container">
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                <a class="navbar-brand" href="../#">Chess Connect</a>
+                <div class="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" >Login</a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+        <!--end of nav-->
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
