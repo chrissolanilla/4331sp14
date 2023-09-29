@@ -39,7 +39,7 @@
   /* Style the body to fit the entire viewport and set the background color */
   body {
     margin: 0;
-    height: 100vh;
+    /*height: 100vh;*/
     background-color: lightgreen;
   }
   
