@@ -70,7 +70,7 @@
                 // Execute the statement
                 if (!mysqli_num_rows($select)&&$stmt->execute()) {
                     // Registration successful, redirect to the login page
-                    header("Location: ../login.php");
+                    header("Location: ../login/login.php");
                     exit();
                 }else {
                     // Registration failed, redirect back to the registration page with an error
