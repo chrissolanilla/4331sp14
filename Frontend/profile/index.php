@@ -8,6 +8,14 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
+// Establish the database connection
+$conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+    
 // Fetch user details from the session
 $userDetails = [
     "username" => $_SESSION["username"],
@@ -20,6 +28,14 @@ $userDetails = [
     "favorite_opening" => $_SESSION["favorite_opening"],
     "title" => $_SESSION["title"]
 ];
+// After displaying the user profile, retrieve the contacts
+            
+    $contacts_query = "SELECT * FROM contacts WHERE user_id = ?";
+    $stmt = $conn->prepare($contacts_query);
+    $stmt->bind_param("i", $_SESSION["user_id"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $contacts = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +60,7 @@ $userDetails = [
             </nav>
         </div>
         <!--end of nav-->
-
+    <!--beginning of the users profile info -->
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -91,6 +107,66 @@ $userDetails = [
                 </div>
             </div>
         </div>
+        <!--end of the users profile info-->
+        
+        <h3>Your Contacts</h3>
+        <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Country</th>
+                <th>Chess Rating</th>
+                <th>Favorite Opening</th>
+                <th>Title</th>
+                <th>Address</th>
+                <!-- Add other fields as necessary -->
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($contacts as $contact): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($contact["name"]??''); ?></td>
+                <td><?php echo htmlspecialchars($contact["email"]??''); ?></td>
+                <td><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
+                <td><?php echo htmlspecialchars($contact["country"]??''); ?></td>
+                <td><?php echo htmlspecialchars($contact["chess_rating"]??''); ?></td>
+                <td><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
+                <td><?php echo htmlspecialchars($contact["title"]??''); ?></td>
+                <td><?php echo htmlspecialchars($contact["address"]??''); ?></td>
+                <td><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
+                <!-- Output other fields as necessary -->
+                <td>
+                    <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
+                    <a href="edit.php?id=<?php echo $contact["id"]; ?>">Edit</a>
+                    <!-- Add delete button -->
+                    <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');">Delete</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+        </table>
+
+        <h3>Create a new contact</h3>
+        <form action="create.php" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="phone" placeholder="Phone">
+            <input type="text" name="country" placeholder="Country">
+            <input type="number" name="chessRating" placeholder="Chess Rating">
+            <input type="text" name="favoriteOpening" placeholder="Favorite Opening">
+            <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
+            <button type="submit">Create</button>
+        </form>
+
+        <h3>Delete a contact</h3>
+        <form action="delete.php" method="GET">
+            <input type="text" name="id" placeholder="Enter Contact ID to Delete" required>
+            <button type="submit">Delete</button>
+        </form>
+
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </body>

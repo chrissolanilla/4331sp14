@@ -40,6 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["chess_rating"] = $user["chess_rating"];
             $_SESSION["favorite_opening"] = $user["favorite_opening"];
             $_SESSION["title"] = $user["title"];
+            $_SESSION["user_id"] = $user["id"];
+            // echo "User ID set in session is: " . $_SESSION["user_id"];
+            // exit; // Temporary exit to see the debug message.
+
             header("Location: ../profile/"); // Redirect to the profile page
             exit();
         } else {

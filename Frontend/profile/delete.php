@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 // Get the username, password, and additional user information from the form
     
@@ -14,7 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare a SQL statement to insert the new user
-    $delete=mysqli($conn,"DELETE FROM contacts WHERE $_GET['id']");
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $stmt = $conn->prepare("DELETE FROM contacts WHERE id = ?");
+        $stmt->bind_param("i", $id);  // Assuming 'id' is an integer
+        $stmt->execute();
+    }
     
 
     // Execute the statement
